@@ -69,18 +69,98 @@
 		53B8456B26348BD0006F71CF /* FileAnalyzer */ = {
 			isa = PBXGroup;
 			children = (
-				53B8456C26348BD0006F71CF /* AppDelegate.swift */,
-				53B8456E26348BD0006F71CF /* SceneDelegate.swift */,
-				53B8457026348BD0006F71CF /* FileSelectorView.swift */,
-				53B8457226348BD0006F71CF /* Main.storyboard */,
 				53B8457526348BD1006F71CF /* Assets.xcassets */,
-				53B8457726348BD1006F71CF /* LaunchScreen.storyboard */,
-				53B8457A26348BD1006F71CF /* Info.plist */,
-				53B8458E26349910006F71CF /* TextFileCell.swift */,
-				53B845912634AB32006F71CF /* AnalysisResultView.swift */,
-				53B845942634B9BA006F71CF /* WordCountCell.swift */,
+				53B8459A2634BE76006F71CF /* general */,
+				53B8459E2634BEE0006F71CF /* helper */,
+				53B8459B2634BE7C006F71CF /* object */,
+				53B8459C2634BE86006F71CF /* raw */,
+				53B8459F2634BEE9006F71CF /* resources */,
+				53B8459D2634BEDC006F71CF /* service */,
+				53B845992634BE70006F71CF /* ui */,
 			);
 			path = FileAnalyzer;
+			sourceTree = "<group>";
+		};
+		53B845992634BE70006F71CF /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				53B845A22634BF53006F71CF /* storyboard */,
+				53B845A12634BF14006F71CF /* controller */,
+				53B845A02634BEFF006F71CF /* cell */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		53B8459A2634BE76006F71CF /* general */ = {
+			isa = PBXGroup;
+			children = (
+				53B8456C26348BD0006F71CF /* AppDelegate.swift */,
+				53B8456E26348BD0006F71CF /* SceneDelegate.swift */,
+				53B8457A26348BD1006F71CF /* Info.plist */,
+			);
+			path = general;
+			sourceTree = "<group>";
+		};
+		53B8459B2634BE7C006F71CF /* object */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = object;
+			sourceTree = "<group>";
+		};
+		53B8459C2634BE86006F71CF /* raw */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = raw;
+			sourceTree = "<group>";
+		};
+		53B8459D2634BEDC006F71CF /* service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		53B8459E2634BEE0006F71CF /* helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = helper;
+			sourceTree = "<group>";
+		};
+		53B8459F2634BEE9006F71CF /* resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		53B845A02634BEFF006F71CF /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				53B8458E26349910006F71CF /* TextFileCell.swift */,
+				53B845942634B9BA006F71CF /* WordCountCell.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		53B845A12634BF14006F71CF /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				53B8457026348BD0006F71CF /* FileSelectorView.swift */,
+				53B845912634AB32006F71CF /* AnalysisResultView.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		53B845A22634BF53006F71CF /* storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				53B8457226348BD0006F71CF /* Main.storyboard */,
+				53B8457726348BD1006F71CF /* LaunchScreen.storyboard */,
+			);
+			path = storyboard;
 			sourceTree = "<group>";
 		};
 		AF3E2FE0D14643876DCD6063 /* Frameworks */ = {
