@@ -8,6 +8,7 @@
 import UIKit
 
 class FileSelectorView: UIViewController {
+    private let TAG = String(describing: self)
 
     @IBOutlet weak var bt_analyze: UIButton!
     @IBOutlet weak var table_view: UITableView!
@@ -56,6 +57,7 @@ class FileSelectorView: UIViewController {
     // MARK: PUBLIC FUNCTIONS
     @IBAction func analyzeSelectedFile(_ sender: UIButton) {
         // presenter.executeAnalysis()
+        performSegue(withIdentifier: "navigateToAnalysisResultView", sender: self)
     }
 }
 

@@ -15,6 +15,8 @@
 		53B8457626348BD1006F71CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53B8457526348BD1006F71CF /* Assets.xcassets */; };
 		53B8457926348BD1006F71CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53B8457726348BD1006F71CF /* LaunchScreen.storyboard */; };
 		53B8458F26349910006F71CF /* TextFileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B8458E26349910006F71CF /* TextFileCell.swift */; };
+		53B845922634AB32006F71CF /* AnalysisResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B845912634AB32006F71CF /* AnalysisResultView.swift */; };
+		53B845952634B9BA006F71CF /* WordCountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B845942634B9BA006F71CF /* WordCountCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		53B8457826348BD1006F71CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53B8457A26348BD1006F71CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53B8458E26349910006F71CF /* TextFileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFileCell.swift; sourceTree = "<group>"; };
+		53B845912634AB32006F71CF /* AnalysisResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisResultView.swift; sourceTree = "<group>"; };
+		53B845942634B9BA006F71CF /* WordCountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCountCell.swift; sourceTree = "<group>"; };
 		68E827C2DDCA6FEE77345B0F /* Pods_FileAnalyzer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FileAnalyzer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87805013410677C91071D4E2 /* Pods-FileAnalyzer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FileAnalyzer.debug.xcconfig"; path = "Target Support Files/Pods-FileAnalyzer/Pods-FileAnalyzer.debug.xcconfig"; sourceTree = "<group>"; };
 		D73BC88315BDD8D6FBE3F756 /* Pods-FileAnalyzer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FileAnalyzer.release.xcconfig"; path = "Target Support Files/Pods-FileAnalyzer/Pods-FileAnalyzer.release.xcconfig"; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 				53B8457726348BD1006F71CF /* LaunchScreen.storyboard */,
 				53B8457A26348BD1006F71CF /* Info.plist */,
 				53B8458E26349910006F71CF /* TextFileCell.swift */,
+				53B845912634AB32006F71CF /* AnalysisResultView.swift */,
+				53B845942634B9BA006F71CF /* WordCountCell.swift */,
 			);
 			path = FileAnalyzer;
 			sourceTree = "<group>";
@@ -211,7 +217,9 @@
 				53B8457126348BD0006F71CF /* FileSelectorView.swift in Sources */,
 				53B8456D26348BD0006F71CF /* AppDelegate.swift in Sources */,
 				53B8458F26349910006F71CF /* TextFileCell.swift in Sources */,
+				53B845952634B9BA006F71CF /* WordCountCell.swift in Sources */,
 				53B8456F26348BD0006F71CF /* SceneDelegate.swift in Sources */,
+				53B845922634AB32006F71CF /* AnalysisResultView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
