@@ -9,7 +9,7 @@ import RxCocoa
 import RxSwift
 
 class AnalyzerService {
-    public func getFiles(delegate: OperationProtocol, operationObject: OperationObject, list: inout Array<FileObject>, completion: @escaping ([String]?) -> Void) {
+    public func getFiles(delegate: OperationProtocol, operationObject: OperationObject, completion: @escaping ([String]?) -> Void) {
         _ = Observable<[String]>.create({ (observer) -> Disposable in
                         
             observer.on(.next(FileHelper.getResourceList()))

@@ -12,13 +12,16 @@ protocol AnalysisResultDelegate {
 }
 
 class AnalysisResultView: UIViewController {
+    private let TAG = String(describing: self)
+    
+    private let SEGUE_TO_FILE_SELECTOR = "navigateToFileSelectorView"
     
     @IBOutlet weak var tv_title: UILabel!
     @IBOutlet weak var tv_total_words: UILabel!
     @IBOutlet weak var loading_view: UIActivityIndicatorView!
     
     @IBOutlet weak var stack_filter: UIStackView!
-    @IBOutlet weak var search_bar: UISearchBar!
+    @IBOutlet weak var text_field_search: UITextField!
     @IBOutlet weak var bt_filter: UIButton!
     
     @IBOutlet weak var table_view: UITableView!
@@ -34,6 +37,8 @@ class AnalysisResultView: UIViewController {
         presenter = AnalysisResultPresenter(file!, view: self)
         
         configureView()
+        
+        presenter?.getData()
     }
     
     // MARK: PRIVATE FUNCTIONS
@@ -50,17 +55,30 @@ class AnalysisResultView: UIViewController {
         tv_title.text = "ANALYZING FILE..."
         
         loading_view.startAnimating()
+        
+        text_field_search.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
     
     // MARK: PUBLIC FUNCTIONS
     @IBAction func selectFile(_ sender: UIButton) {
-        // TODO: Implementar navigation controller
-        self.navigationController?.popViewController(animated: true)
+        // TODO: Implementar navigation controller. Se están stackeando demasiados VCs
+        // self.navigationController?.popViewController(animated: true)
+        performSegue(withIdentifier: SEGUE_TO_FILE_SELECTOR, sender: self)
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        presenter!.filterList(text: textField.text!)
     }
 }
 
 extension AnalysisResultView: AnalysisResultDelegate {
     func updateData() {
+        let totalWords = presenter!.isFilterActive() ?
+            presenter!.getFilteredList().count : presenter!.getList().count
+        
+        tv_title.text = "ANALYSIS COMPLETED"
+        tv_total_words.text = "A total of \(totalWords) words have been found."
+        
         tv_total_words.isHidden = false
         loading_view.isHidden   = true
         stack_filter.isHidden   = false
@@ -68,16 +86,15 @@ extension AnalysisResultView: AnalysisResultDelegate {
         bt_select_file.isHidden = false
         
         loading_view.stopAnimating()
-        
-        tv_title.text = "ANALYSIS COMPLETED"
-        tv_total_words.text = "A total of \(presenter!.getList().count) words have been found."
+
         table_view.reloadData()
     }
 }
 
 extension AnalysisResultView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter!.getList().count
+        return presenter!.isFilterActive() ?
+            presenter!.getFilteredList().count : presenter!.getList().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -85,9 +102,15 @@ extension AnalysisResultView: UITableViewDataSource {
             fatalError("The dequeued cell is not an instance of WordCountCell.")
         }
         
+        let word = presenter!.isFilterActive() ?
+            presenter!.getFilteredList()[indexPath.row].getText() : presenter!.getList()[indexPath.row].getText()
+        
+        let count = presenter!.isFilterActive() ?
+            presenter!.getFilteredList()[indexPath.row].getCount() : presenter!.getList()[indexPath.row].getCount()
+        
         cell.setCell(
-            word: presenter!.getList()[indexPath.row].getText(),
-            count: presenter!.getList()[indexPath.row].getCount())
+            word: word,
+            count: count)
         
         cell.selectionStyle = .none
         
