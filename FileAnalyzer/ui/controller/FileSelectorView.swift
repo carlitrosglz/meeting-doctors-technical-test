@@ -7,8 +7,15 @@
 
 import UIKit
 
+protocol FileSelectorDelegate {
+    func updateData()
+}
+
 class FileSelectorView: UIViewController {
     private let TAG = String(describing: self)
+    private let SEGUE_TO_ANALYSIS_RESULT = "navigateToAnalysisResultView"
+    
+    private var presenter: FileSelectorPresenter?
 
     @IBOutlet weak var bt_analyze: UIButton!
     @IBOutlet weak var table_view: UITableView!
@@ -18,12 +25,16 @@ class FileSelectorView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        presenter = FileSelectorPresenter(view: self)
+        
         configureView()
-        // presenter.getData() --> lectura de los ficheros del folder raw, devuelve callback a view para refrescar tableview
+        
+        presenter!.getData()
     }
     
     // MARK: PRIVATE FUNCTIONS
     private func configureView() {
+        bt_analyze.isEnabled = false
         bt_analyze.clipsToBounds = true
         bt_analyze.layer.cornerRadius = 20.0
         
@@ -56,11 +67,26 @@ class FileSelectorView: UIViewController {
     
     // MARK: PUBLIC FUNCTIONS
     @IBAction func analyzeSelectedFile(_ sender: UIButton) {
-        // presenter.executeAnalysis()
-        performSegue(withIdentifier: "navigateToAnalysisResultView", sender: self)
+        performSegue(withIdentifier: SEGUE_TO_ANALYSIS_RESULT, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SEGUE_TO_ANALYSIS_RESULT {
+            if let vc = segue.destination as? AnalysisResultView {
+                // vc.file = presenter!.getList()[lastSelectedRow!]
+            }
+        }
     }
 }
 
+// MARK: FILESELECTOR DELEGATE
+extension FileSelectorView: FileSelectorDelegate {
+    func updateData() {
+        table_view.reloadData()
+    }
+}
+
+// MARK: UITABLEVIEW DELEGATE
 extension FileSelectorView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row != lastSelectedRow {
@@ -71,11 +97,10 @@ extension FileSelectorView: UITableViewDelegate {
     }
 }
 
+// MARK: UITABLEVIEW DATASOURCE
 extension FileSelectorView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
-        
-        // return list.count --> total de ficheros que se han encontrado en el folder raw.
+        return presenter!.getList().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -83,8 +108,7 @@ extension FileSelectorView: UITableViewDataSource {
             fatalError("The dequeued cell is not an instance of TextFileCell.")
         }
         
-        cell.setCell(filename: "Nombre del fichero")
-        
+        cell.setCell(presenter!.getList()[indexPath.row])
         return cell
     }
 }

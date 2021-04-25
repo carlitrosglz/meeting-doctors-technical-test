@@ -16,8 +16,8 @@ class TextFileCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    public func setCell(filename: String) {
-        tv_file_name.text = filename
+    public func setCell(_ file: FileObject) {
+        tv_file_name.text = "\(file.getName())\(file.getFileType())"
     }
     
     public func selectRow() {
