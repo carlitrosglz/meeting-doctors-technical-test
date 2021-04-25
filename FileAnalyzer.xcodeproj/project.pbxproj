@@ -11,6 +11,8 @@
 		53010B9D2634CA07004ADCCE /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53010B9C2634CA07004ADCCE /* FileHelper.swift */; };
 		53387A212635498700F1AA71 /* OperationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53387A202635498700F1AA71 /* OperationProtocol.swift */; };
 		53387A24263549F300F1AA71 /* OperationObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53387A23263549F300F1AA71 /* OperationObject.swift */; };
+		53387A2B26355CB600F1AA71 /* AnalysisResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53387A2A26355CB600F1AA71 /* AnalysisResultPresenter.swift */; };
+		53387A2E263563D900F1AA71 /* WordObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53387A2D263563D900F1AA71 /* WordObject.swift */; };
 		53B8456D26348BD0006F71CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B8456C26348BD0006F71CF /* AppDelegate.swift */; };
 		53B8456F26348BD0006F71CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B8456E26348BD0006F71CF /* SceneDelegate.swift */; };
 		53B8457126348BD0006F71CF /* FileSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B8457026348BD0006F71CF /* FileSelectorView.swift */; };
@@ -32,6 +34,8 @@
 		53010B9C2634CA07004ADCCE /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		53387A202635498700F1AA71 /* OperationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationProtocol.swift; sourceTree = "<group>"; };
 		53387A23263549F300F1AA71 /* OperationObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationObject.swift; sourceTree = "<group>"; };
+		53387A2A26355CB600F1AA71 /* AnalysisResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisResultPresenter.swift; sourceTree = "<group>"; };
+		53387A2D263563D900F1AA71 /* WordObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordObject.swift; sourceTree = "<group>"; };
 		53B8456926348BD0006F71CF /* FileAnalyzer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FileAnalyzer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53B8456C26348BD0006F71CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53B8456E26348BD0006F71CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				53B845AC2634C0BB006F71CF /* FileSelectorPresenter.swift */,
+				53387A2A26355CB600F1AA71 /* AnalysisResultPresenter.swift */,
 			);
 			path = presenter;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 			children = (
 				53B845B02634C10E006F71CF /* FileObject.swift */,
 				53387A23263549F300F1AA71 /* OperationObject.swift */,
+				53387A2D263563D900F1AA71 /* WordObject.swift */,
 			);
 			path = object;
 			sourceTree = "<group>";
@@ -346,11 +352,13 @@
 				53B8457126348BD0006F71CF /* FileSelectorView.swift in Sources */,
 				53B845B12634C10E006F71CF /* FileObject.swift in Sources */,
 				53B8456D26348BD0006F71CF /* AppDelegate.swift in Sources */,
+				53387A2B26355CB600F1AA71 /* AnalysisResultPresenter.swift in Sources */,
 				53387A212635498700F1AA71 /* OperationProtocol.swift in Sources */,
 				53B8458F26349910006F71CF /* TextFileCell.swift in Sources */,
 				53010B9D2634CA07004ADCCE /* FileHelper.swift in Sources */,
 				53B845952634B9BA006F71CF /* WordCountCell.swift in Sources */,
 				53B8456F26348BD0006F71CF /* SceneDelegate.swift in Sources */,
+				53387A2E263563D900F1AA71 /* WordObject.swift in Sources */,
 				53B845922634AB32006F71CF /* AnalysisResultView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

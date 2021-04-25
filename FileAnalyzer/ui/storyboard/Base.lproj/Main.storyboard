@@ -132,17 +132,20 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="aDG-Su-wso">
                                 <rect key="frame" x="10" y="74" width="394" height="708"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rBe-Jv-5mG">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="78.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rBe-Jv-5mG">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="125.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="ANALYSIS COMPLETED" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQr-Ud-ZI0" userLabel="Tv Title">
-                                                <rect key="frame" x="0.0" y="0.0" width="394" height="48"/>
+                                                <rect key="frame" x="0.5" y="0.0" width="393" height="48"/>
                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="40"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="751" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="WBa-Fe-SAo">
+                                                <rect key="frame" x="178.5" y="58" width="37" height="37"/>
+                                            </activityIndicatorView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A total of %s words have been found." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GYk-wr-ger">
-                                                <rect key="frame" x="0.0" y="58" width="394" height="20.5"/>
+                                                <rect key="frame" x="55.5" y="105" width="283.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -150,21 +153,21 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5tM-bK-nMJ">
-                                        <rect key="frame" x="0.0" y="98.5" width="394" height="22"/>
+                                        <rect key="frame" x="0.0" y="145.5" width="394" height="56"/>
                                         <subviews>
                                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Find a word..." translatesAutoresizingMaskIntoConstraints="NO" id="Y1G-3k-aWh">
-                                                <rect key="frame" x="0.0" y="0.0" width="377" height="22"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="56"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </searchBar>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rKY-MV-5Z9">
-                                                <rect key="frame" x="377" y="0.0" width="17" height="22"/>
+                                                <rect key="frame" x="373" y="0.0" width="21" height="56"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" image="swift" catalog="system"/>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c1v-He-Kly">
-                                        <rect key="frame" x="0.0" y="140.5" width="394" height="567.5"/>
+                                        <rect key="frame" x="0.0" y="221.5" width="394" height="486.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WordCountCell" id="clD-vF-cJR" customClass="WordCountCell" customModule="FileAnalyzer" customModuleProvider="target">
@@ -243,8 +246,11 @@
                     <connections>
                         <outlet property="bt_filter" destination="rKY-MV-5Z9" id="frG-q1-lyF"/>
                         <outlet property="bt_select_file" destination="v6l-9I-4c0" id="3qt-wa-VgA"/>
+                        <outlet property="loading_view" destination="WBa-Fe-SAo" id="Bhq-lu-Z40"/>
                         <outlet property="search_bar" destination="Y1G-3k-aWh" id="FOt-iY-ASS"/>
+                        <outlet property="stack_filter" destination="5tM-bK-nMJ" id="Q9w-G4-K3H"/>
                         <outlet property="table_view" destination="c1v-He-Kly" id="dFr-ET-0iQ"/>
+                        <outlet property="tv_title" destination="JQr-Ud-ZI0" id="lrb-xy-yQs"/>
                         <outlet property="tv_total_words" destination="GYk-wr-ger" id="SzG-73-82K"/>
                     </connections>
                 </viewController>

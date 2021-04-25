@@ -29,4 +29,39 @@ class FileHelper {
         
         return ""
     }
+    
+    class func readWordsFromFile(file: FileObject, separator: Character) -> Array<WordObject> {
+        let url = Bundle.main.url(forResource: file.getName(), withExtension: file.getFileType())
+        let text = try? String(contentsOf: url!)
+            .replacingOccurrences(of: "\n", with: " ")
+            .replacingOccurrences(of: "\r", with: " ")
+            .trimmingCharacters(in: .whitespaces)
+            .split(separator: separator)
+
+        return discretizeWords(text: text!)
+    }
+    
+    private class func discretizeWords(text: [String.SubSequence]) -> Array<WordObject> {
+        var list = Array<WordObject>()
+        
+        for word in text {
+            let word = String(word).lowercased().trimmingCharacters(in: .whitespaces)
+            if !word.isEmpty && !existsWordInList(word, list: list) {
+                list.append(WordObject(text: word))
+            }
+        }
+        
+        return list
+    }
+    
+    private class func existsWordInList(_ word: String, list: Array<WordObject>) -> Bool {
+        for object in list {
+            if object.getText().lowercased() == word.lowercased() {
+                object.addCount()
+                return true
+            }
+        }
+        
+        return false
+    }
 }

@@ -16,8 +16,8 @@ class AnalyzerService {
             
             return Disposables.create()
         })
-        .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .default))
-            .observeOn(MainScheduler.instance)
+        .subscribeOn(getInstanceToSubscribeOn())
+            .observeOn(getInstanceToObserveOn())
             .subscribe(
                 onNext: { (element) in
                     completion(element)
@@ -27,5 +27,33 @@ class AnalyzerService {
                     completion(nil)
                 }
             )
+    }
+    
+    public func getWordsFromFile(delegate: OperationProtocol, operationObject: OperationObject, file: FileObject, completion: @escaping (Array<WordObject>) -> Void) {
+        _ = Observable<Array<WordObject>>.create({ (observer) -> Disposable in
+                        
+            observer.on(.next(FileHelper.readWordsFromFile(file: file, separator: " ")))
+            
+            return Disposables.create()
+        })
+        .subscribeOn(getInstanceToSubscribeOn())
+            .observeOn(getInstanceToObserveOn())
+            .subscribe(
+                onNext: { (element) in
+                    completion(element)
+                },
+                onError: { (error) in
+                    operationObject.activateError()
+                    // completion(nil)
+                }
+            )
+    }
+    
+    private func getInstanceToObserveOn() -> ImmediateSchedulerType {
+        return MainScheduler.instance
+    }
+    
+    private func getInstanceToSubscribeOn() -> ImmediateSchedulerType {
+        return ConcurrentDispatchQueueScheduler(qos: .default)
     }
 }

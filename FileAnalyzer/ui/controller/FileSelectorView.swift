@@ -73,7 +73,7 @@ class FileSelectorView: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SEGUE_TO_ANALYSIS_RESULT {
             if let vc = segue.destination as? AnalysisResultView {
-                // vc.file = presenter!.getList()[lastSelectedRow!]
+                vc.file = presenter!.getList()[lastSelectedRow!]
             }
         }
     }
