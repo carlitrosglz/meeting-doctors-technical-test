@@ -156,13 +156,12 @@
                                         <rect key="frame" x="0.0" y="145.5" width="394" height="56"/>
                                         <subviews>
                                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Find a word..." translatesAutoresizingMaskIntoConstraints="NO" id="Y1G-3k-aWh">
-                                                <rect key="frame" x="0.0" y="0.0" width="373" height="56"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="56"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </searchBar>
-                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rKY-MV-5Z9">
-                                                <rect key="frame" x="373" y="0.0" width="21" height="56"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <state key="normal" image="swift" catalog="system"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rKY-MV-5Z9">
+                                                <rect key="frame" x="359" y="0.0" width="35" height="56"/>
+                                                <state key="normal" title="Filter"/>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -261,7 +260,6 @@
     </scenes>
     <resources>
         <image name="doc.plaintext" catalog="system" width="115" height="128"/>
-        <image name="swift" catalog="system" width="128" height="106"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
