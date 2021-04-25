@@ -34,6 +34,8 @@ class AnalysisResultView: UIViewController {
         presenter = AnalysisResultPresenter(file!, view: self)
         
         configureView()
+        
+        presenter?.getData()
     }
     
     // MARK: PRIVATE FUNCTIONS
