@@ -31,14 +31,22 @@ class FileHelper {
     }
     
     class func readWordsFromFile(file: FileObject, separator: Character) -> Array<WordObject> {
+        let forbiddenChars: Set<Character> = [".", "?", "'", ",", "-", "!", ":", ";", "(", ")", "[", "]", "/", "`", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
         let url = Bundle.main.url(forResource: file.getName(), withExtension: file.getFileType())
-        let text = try? String(contentsOf: url!)
+
+        var aux = try? String(contentsOf: url!)
             .replacingOccurrences(of: "\n", with: " ")
             .replacingOccurrences(of: "\r", with: " ")
             .trimmingCharacters(in: .whitespaces)
-            .split(separator: separator)
 
-        return discretizeWords(text: text!)
+        aux?.removeAll(where: { forbiddenChars.contains($0) })
+        
+        if let text = aux?.split(separator: separator) {
+            return discretizeWords(text: text)
+
+        } else {
+            return Array<WordObject>()
+        }
     }
     
     private class func discretizeWords(text: [String.SubSequence]) -> Array<WordObject> {
