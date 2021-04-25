@@ -67,6 +67,8 @@ class FileSelectorView: UIViewController {
     
     // MARK: PUBLIC FUNCTIONS
     @IBAction func analyzeSelectedFile(_ sender: UIButton) {
+        // TODO: Implementar navigation controller. Se están stackeando demasiados VCs
+        // self.navigationController?.pushViewController()
         performSegue(withIdentifier: SEGUE_TO_ANALYSIS_RESULT, sender: self)
     }
     

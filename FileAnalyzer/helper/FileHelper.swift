@@ -34,6 +34,7 @@ class FileHelper {
         let forbiddenChars: Set<Character> = [".", "?", "'", ",", "-", "!", ":", ";", "(", ")", "[", "]", "/", "`", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
         let url = Bundle.main.url(forResource: file.getName(), withExtension: file.getFileType())
 
+        // TODO: Refactorizar esta función. Sacar todo el código que aplica el filtro al string a otro helper (StringHelper e.g)
         var aux = try? String(contentsOf: url!)
             .replacingOccurrences(of: "\n", with: " ")
             .replacingOccurrences(of: "\r", with: " ")

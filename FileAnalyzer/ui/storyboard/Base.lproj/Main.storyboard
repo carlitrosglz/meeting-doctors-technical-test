@@ -11,7 +11,7 @@
         <!--File Selector View-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="FileSelectorView" customModule="FileAnalyzer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="FileSelectorView" customModule="FileAnalyzer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,6 +111,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="W8U-3B-Afd" secondAttribute="bottom" constant="10" id="i5c-QP-KQK"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="230-Jb-RdJ"/>
                     <connections>
                         <outlet property="bt_analyze" destination="W8U-3B-Afd" id="7PB-kP-xNs"/>
                         <outlet property="table_view" destination="PaU-Tp-mY9" id="nKr-WJ-uT0"/>
@@ -251,6 +252,7 @@
                         <outlet property="table_view" destination="c1v-He-Kly" id="dFr-ET-0iQ"/>
                         <outlet property="tv_title" destination="JQr-Ud-ZI0" id="lrb-xy-yQs"/>
                         <outlet property="tv_total_words" destination="GYk-wr-ger" id="SzG-73-82K"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="navigateToFileSelectorView" id="fc9-P4-Jsn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TTx-3n-Ds7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

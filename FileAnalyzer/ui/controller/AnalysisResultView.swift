@@ -12,6 +12,9 @@ protocol AnalysisResultDelegate {
 }
 
 class AnalysisResultView: UIViewController {
+    private let TAG = String(describing: self)
+    
+    private let SEGUE_TO_FILE_SELECTOR = "navigateToFileSelectorView"
     
     @IBOutlet weak var tv_title: UILabel!
     @IBOutlet weak var tv_total_words: UILabel!
@@ -56,8 +59,9 @@ class AnalysisResultView: UIViewController {
     
     // MARK: PUBLIC FUNCTIONS
     @IBAction func selectFile(_ sender: UIButton) {
-        // TODO: Implementar navigation controller
-        self.navigationController?.popViewController(animated: true)
+        // TODO: Implementar navigation controller. Se están stackeando demasiados VCs
+        // self.navigationController?.popViewController(animated: true)
+        performSegue(withIdentifier: SEGUE_TO_FILE_SELECTOR, sender: self)
     }
 }
 
