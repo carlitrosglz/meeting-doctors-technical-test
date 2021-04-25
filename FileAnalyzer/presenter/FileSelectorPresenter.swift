@@ -53,8 +53,7 @@ extension FileSelectorPresenter: OperationProtocol {
                 
                 service.getFiles(
                     delegate: self,
-                    operationObject: operationObject,
-                    list: &list!) {
+                    operationObject: operationObject) {
                         [weak self] (result) in
                             if result != nil {
                                 self?.processData(result: result!)
